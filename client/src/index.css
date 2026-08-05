@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---- Brand / accent ---- */
+  --brand: #c9a869;
+  --brand-2: #b6924f;
+  --brand-ink: #2a2110;
+  --accent: #7c9473;
+
+  /* ---- Surfaces ---- */
+  --page: #0c0f15;
+  --surface: #12161f;
+  --surface-2: #171c27;
+  --surface-3: #1d2330;
+
+  /* ---- Borders ---- */
+  --border: #262e40;
+  --border-strong: #333d54;
+
+  /* ---- Text ---- */
+  --text: #eae7de;
+  --text-2: #a8afc0;
+  --text-3: #767f93;
+
+  /* ---- Status ---- */
+  --good: #7c9473;
+  --good-ink: #a9c29d;
+  --good-bg: rgba(124, 148, 115, 0.12);
+  --good-border: rgba(124, 148, 115, 0.35);
+
+  --warn: #c79b4b;
+  --warn-ink: #dbb56b;
+  --warn-bg: rgba(199, 155, 75, 0.12);
+  --warn-border: rgba(199, 155, 75, 0.35);
+
+  --bad: #b0594a;
+  --bad-ink: #e0897a;
+  --bad-bg: rgba(176, 89, 74, 0.12);
+  --bad-border: rgba(176, 89, 74, 0.35);
+
+  /* ---- Shape / elevation ---- */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  /* ---- Type ---- */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--text);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--brand);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+/* ============================================================
+   Shared primitives
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--sm {
+  padding: 6px 12px;
+  font-size: 12.5px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+.btn--primary:hover {
+  background: var(--brand-2);
+  border-color: var(--brand-2);
+}
+.btn--primary:disabled {
+  background: var(--surface-3);
+  border-color: var(--border);
+  color: var(--text-3);
+  cursor: not-allowed;
+}
+
+.btn--soft {
+  background: var(--surface-3);
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn--soft:hover {
+  border-color: var(--border-strong);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-2);
+}
+.btn--ghost:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-3);
+  color: var(--text-2);
+  cursor: pointer;
+}
+.icon-btn:hover {
+  color: var(--text);
+}
+
+.field {
+  display: block;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.field__input {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease;
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.field__input::placeholder {
+  color: var(--text-3);
+}
+
+.field__hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+.status {
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.status--good {
+  color: var(--good-ink);
+}
+.status--bad {
+  color: var(--bad-ink);
+}
+.status--warn {
+  color: var(--warn-ink);
+}
+.status--muted {
+  color: var(--text-3);
+}
